@@ -1,0 +1,74 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      - run: npm run package
+
+      - name: Check tag matches package.json
+        run: |
+          VERSION="$(node -p "require('./package.json').version")"
+          if [ "v$VERSION" != "$GITHUB_REF_NAME" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match package.json version $VERSION" >&2
+            exit 1
+          fi
+
+      - name: Write release notes
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          {
+            echo "<p align=\"center\"><img src=\"https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_REF_NAME}/assets/hero.png\" alt=\"Internet Gremlin\" width=\"720\"></p>"
+            echo
+            echo "**Your browser. Its territory. Your problem.**"
+            echo
+            echo "## Install in 2 minutes"
+            echo
+            echo "1. Download **internet-gremlin-v${VERSION}.zip** below and unzip it."
+            echo "2. Open \`chrome://extensions\` (or \`edge://extensions\`) and turn on **Developer mode**."
+            echo "3. Click **Load unpacked** and select the unzipped folder (the one containing \`manifest.json\`)."
+            echo "4. Visit any website. Refresh tabs that were already open."
+            echo
+            echo "Full guide and troubleshooting: [README](https://github.com/${GITHUB_REPOSITORY}#install-it-no-coding-experience-needed)"
+            echo
+            echo "## What's new"
+            awk -v ver="$VERSION" '
+              $0 ~ "^## \\[" ver "\\]" { found = 1; next }
+              found && /^## \[/ { exit }
+              found && /^\[/ { exit }
+              found { print }
+            ' CHANGELOG.md
+            echo
+            echo "---"
+            echo "100% offline · no data collected · MIT licensed"
+          } > release-notes.md
+          cat release-notes.md
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            "release/internet-gremlin-${GITHUB_REF_NAME}.zip" \
+            "promo/demo.mp4#internet-gremlin-demo.mp4" \
+            --title "Internet Gremlin ${GITHUB_REF_NAME}" \
+            --notes-file release-notes.md \
+            --latest
