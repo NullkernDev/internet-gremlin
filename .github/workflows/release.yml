@@ -12,6 +12,11 @@ on:
 permissions:
   contents: write
 
+# Never publish two releases at once.
+concurrency:
+  group: release
+  cancel-in-progress: false
+
 jobs:
   release:
     name: Build and publish
