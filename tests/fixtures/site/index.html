@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Daily Byte — fixture page</title>
+    <style>
+      :root {
+        --ink: #1f2430;
+        --paper: #fbfaf7;
+        --rule: #e6e2d8;
+        --accent: #d9480f;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font: 17px/1.6 Georgia, 'Times New Roman', serif;
+        color: var(--ink);
+        background: var(--paper);
+      }
+      header {
+        border-bottom: 3px double var(--ink);
+        padding: 18px 40px 10px;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 40px;
+        letter-spacing: -0.02em;
+      }
+      nav a {
+        margin-left: 18px;
+        color: var(--ink);
+        font: 600 14px system-ui, sans-serif;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      main {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 40px;
+        padding: 30px 40px 120px;
+        max-width: 1200px;
+      }
+      .kicker {
+        color: var(--accent);
+        font: 700 13px system-ui, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+      article h2 {
+        font-size: 34px;
+        line-height: 1.15;
+        margin: 6px 0 12px;
+      }
+      .byline {
+        font: 14px system-ui, sans-serif;
+        color: #6b7280;
+        margin-bottom: 18px;
+      }
+      .figure {
+        height: 220px;
+        background: linear-gradient(135deg, #ffd8a8, #ffa8a8 45%, #b197fc);
+        margin: 10px 0 18px;
+        display: grid;
+        place-items: end start;
+        padding: 12px;
+        color: #fff;
+        font: 13px system-ui, sans-serif;
+      }
+      aside section {
+        border-top: 1px solid var(--rule);
+        padding: 14px 0;
+      }
+      aside h3 {
+        margin: 0 0 4px;
+        font-size: 18px;
+      }
+      form {
+        display: grid;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      input,
+      button {
+        font: 15px system-ui, sans-serif;
+        padding: 9px 10px;
+        border: 1px solid #c9c4b8;
+        border-radius: 6px;
+      }
+      button {
+        background: var(--ink);
+        color: #fff;
+        cursor: pointer;
+        border: 0;
+      }
+      #corner-btn {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        padding: 10px 14px;
+        background: var(--accent);
+      }
+      .spacer {
+        height: 1600px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>The Daily Byte</h1>
+      <nav><a href="#">World Wide Web</a><a href="#">Tabs</a><a href="#">Cookies</a><a href="#">Opinion</a></nav>
+    </header>
+    <main>
+      <article>
+        <div class="kicker">Investigation</div>
+        <h2>Local Browser Reports 47 Open Tabs, “Totally Under Control”</h2>
+        <div class="byline">By A. Reporter · 6 min read</div>
+        <div class="figure">Illustration: a very full tab bar</div>
+        <p>
+          Sources close to the browser confirm that at least a dozen of the tabs have not been looked at since spring. “I’ll get to them,” said the owner,
+          opening another one.
+        </p>
+        <p>
+          Experts warn that the number of open tabs tends to grow until it reaches equilibrium with the amount of free memory, at which point the laptop fan
+          begins to sing.
+        </p>
+        <p>
+          Meanwhile, a small purple creature has reportedly been seen in the corner of several screens. It could not be reached for comment, although it did
+          say “I am not paid enough for this.”
+        </p>
+        <div class="spacer"></div>
+      </article>
+      <aside>
+        <section>
+          <h3>Most read</h3>
+          <p>Why does every website want me to accept cookies?</p>
+        </section>
+        <section>
+          <h3>Newsletter</h3>
+          <form onsubmit="event.preventDefault(); document.getElementById('signup-status').textContent = 'Subscribed!';">
+            <input id="email" type="email" placeholder="you@example.com" aria-label="Email" />
+            <button id="signup" type="submit">Subscribe</button>
+            <span id="signup-status"></span>
+          </form>
+        </section>
+      </aside>
+    </main>
+    <button id="corner-btn" onclick="this.dataset.clicks = String(Number(this.dataset.clicks || 0) + 1); this.textContent = 'Clicked ' + this.dataset.clicks">
+      Corner button
+    </button>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+name: Idea for the Gremlin
+description: A new behaviour, secret, expression, dialogue line or feature.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: What should the Gremlin do, and when?
+    validations:
+      required: true
+  - type: textarea
+    id: lines
+    attributes:
+      label: Example dialogue (optional)
+      description: Short lines it might say. Grumpy is fine, mean is not.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: This works without reading page content, URLs, form fields or sending data anywhere.
+          required: true

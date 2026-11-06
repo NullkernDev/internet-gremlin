@@ -1,0 +1,233 @@
+.opt {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 22px 40px;
+}
+.opt-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 26px;
+  color: #fff;
+  text-shadow: 3px 3px 0 var(--k);
+}
+.opt-head h1 {
+  margin: 0;
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.opt-head p {
+  margin: 6px 0 0;
+  font-size: 18px;
+  color: var(--accent);
+}
+.opt-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 22px;
+  align-items: start;
+}
+.full {
+  grid-column: 1 / -1;
+}
+@media (max-width: 860px) {
+  .opt-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.rows {
+  display: grid;
+  gap: 14px;
+}
+.row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+.row > span,
+.row > label {
+  padding-top: 8px;
+  font-weight: 600;
+}
+.row.toggles {
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding-top: 10px;
+  border-top: 3px dashed var(--win3);
+}
+.help {
+  margin: 6px 3px 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+.rel-top {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.rel-stage {
+  flex: none;
+  width: 124px;
+  height: 108px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 0 3px var(--k);
+  background: repeating-linear-gradient(0deg, var(--win2) 0 2px, var(--win) 2px 4px);
+}
+.stats {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 12px;
+  margin: 14px 0;
+  font-size: 14px;
+}
+.stats dt {
+  color: var(--muted);
+}
+.stats dd {
+  margin: 0;
+  text-align: right;
+  font-weight: 600;
+}
+.grudge {
+  padding: 8px;
+  background: var(--pink);
+  color: #fff;
+  box-shadow: 0 0 0 3px var(--k);
+  font-size: 13px;
+}
+.secrets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 10px;
+}
+.secrets li {
+  padding: 8px 10px;
+  box-shadow: 0 0 0 3px var(--k);
+  margin: 3px;
+  display: grid;
+  gap: 2px;
+  font-size: 13px;
+}
+.secrets li strong {
+  font-size: 14px;
+}
+.secrets li.got {
+  background: var(--accent);
+  color: #1c1230;
+}
+.secrets li.locked {
+  background: repeating-linear-gradient(45deg, var(--win2) 0 6px, var(--win) 6px 12px);
+  color: var(--muted);
+}
+.dex {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.dex li {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  padding: 6px 2px;
+  font-size: 12px;
+  text-align: center;
+  background: var(--win2);
+  box-shadow: 0 0 0 2px var(--k);
+  margin: 2px;
+}
+.dex li.unseen .sprite {
+  filter: brightness(0) opacity(0.35);
+}
+.dex li.unseen span {
+  color: var(--muted);
+}
+.privacy {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 22px;
+}
+@media (max-width: 860px) {
+  .privacy {
+    grid-template-columns: 1fr;
+  }
+}
+.privacy p {
+  margin: 0 0 10px;
+}
+.privacy h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+.privacy code,
+.sites code {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 12px;
+  background: var(--win2);
+  padding: 1px 4px;
+}
+.sites {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.sites li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+.dump {
+  margin: 14px 3px 3px;
+  max-height: 320px;
+  overflow: auto;
+  padding: 12px;
+  background: #120d24;
+  color: var(--accent);
+  box-shadow: 0 0 0 3px var(--k);
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 12px;
+}
+.opt-foot {
+  margin-top: 26px;
+  text-align: center;
+  color: #fff;
+  font-size: 13px;
+  text-shadow: 2px 2px 0 var(--k);
+}
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(10, 6, 24, 0.6);
+  padding: 20px;
+}
+.modal .win {
+  max-width: 480px;
+}
+.confirm {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.confirm p {
+  margin: 0 0 10px;
+}

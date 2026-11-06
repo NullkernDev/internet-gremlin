@@ -1,0 +1,400 @@
+{
+ "videoOffset": 0.4,
+ "events": [
+  {
+   "t": 0,
+   "type": "open",
+   "name": ""
+  },
+  {
+   "t": 0.8,
+   "type": "scene",
+   "name": "01"
+  },
+  {
+   "t": 0.8,
+   "type": "appear",
+   "name": ""
+  },
+  {
+   "t": 0.813,
+   "type": "mood",
+   "name": "IDLE"
+  },
+  {
+   "t": 1.7,
+   "type": "shot",
+   "name": "reunion"
+  },
+  {
+   "t": 1.7,
+   "type": "mood",
+   "name": "HAPPY"
+  },
+  {
+   "t": 1.7,
+   "type": "fx",
+   "name": "sparkle"
+  },
+  {
+   "t": 1.711,
+   "type": "say",
+   "name": "greet.3"
+  },
+  {
+   "t": 1.711,
+   "type": "sound",
+   "name": "blip"
+  },
+  {
+   "t": 3.6,
+   "type": "scene",
+   "name": "02"
+  },
+  {
+   "t": 4.302,
+   "type": "click",
+   "name": ""
+  },
+  {
+   "t": 4.601,
+   "type": "click",
+   "name": ""
+  },
+  {
+   "t": 4.901,
+   "type": "click",
+   "name": ""
+  },
+  {
+   "t": 5.201,
+   "type": "click",
+   "name": ""
+  },
+  {
+   "t": 5.501,
+   "type": "click",
+   "name": ""
+  },
+  {
+   "t": 5.801,
+   "type": "click",
+   "name": ""
+  },
+  {
+   "t": 6.101,
+   "type": "click",
+   "name": ""
+  },
+  {
+   "t": 6.101,
+   "type": "shot",
+   "name": "jump"
+  },
+  {
+   "t": 6.101,
+   "type": "mood",
+   "name": "EXCITED"
+  },
+  {
+   "t": 6.101,
+   "type": "fx",
+   "name": "sparkle"
+  },
+  {
+   "t": 6.101,
+   "type": "say",
+   "name": "clickSpam.1"
+  },
+  {
+   "t": 6.101,
+   "type": "sound",
+   "name": "blip"
+  },
+  {
+   "t": 8.699,
+   "type": "scene",
+   "name": "03"
+  },
+  {
+   "t": 9.301,
+   "type": "mood",
+   "name": "IDLE"
+  },
+  {
+   "t": 11.815,
+   "type": "shot",
+   "name": "yawn"
+  },
+  {
+   "t": 11.815,
+   "type": "mood",
+   "name": "BORED"
+  },
+  {
+   "t": 14.315,
+   "type": "shot",
+   "name": "squish"
+  },
+  {
+   "t": 14.315,
+   "type": "mood",
+   "name": "SLEEPING"
+  },
+  {
+   "t": 14.315,
+   "type": "fx",
+   "name": "zzz"
+  },
+  {
+   "t": 14.315,
+   "type": "say",
+   "name": "sleep.0"
+  },
+  {
+   "t": 14.315,
+   "type": "sound",
+   "name": "blip"
+  },
+  {
+   "t": 15,
+   "type": "scene",
+   "name": "04"
+  },
+  {
+   "t": 15.017,
+   "type": "shot",
+   "name": "jump"
+  },
+  {
+   "t": 15.017,
+   "type": "mood",
+   "name": "SHOCKED"
+  },
+  {
+   "t": 15.017,
+   "type": "fx",
+   "name": "exclaim"
+  },
+  {
+   "t": 16.565,
+   "type": "mood",
+   "name": "ANGRY"
+  },
+  {
+   "t": 16.565,
+   "type": "say",
+   "name": "wakeGrumpy.1"
+  },
+  {
+   "t": 16.565,
+   "type": "sound",
+   "name": "blip"
+  },
+  {
+   "t": 18.799,
+   "type": "scene",
+   "name": "05"
+  },
+  {
+   "t": 18.8,
+   "type": "tab",
+   "name": "4"
+  },
+  {
+   "t": 18.87,
+   "type": "tab",
+   "name": "5"
+  },
+  {
+   "t": 18.94,
+   "type": "tab",
+   "name": "6"
+  },
+  {
+   "t": 19.01,
+   "type": "tab",
+   "name": "7"
+  },
+  {
+   "t": 19.08,
+   "type": "tab",
+   "name": "8"
+  },
+  {
+   "t": 19.151,
+   "type": "tab",
+   "name": "9"
+  },
+  {
+   "t": 19.221,
+   "type": "tab",
+   "name": "10"
+  },
+  {
+   "t": 19.291,
+   "type": "tab",
+   "name": "11"
+  },
+  {
+   "t": 19.361,
+   "type": "tab",
+   "name": "12"
+  },
+  {
+   "t": 19.9,
+   "type": "mood",
+   "name": "CURIOUS"
+  },
+  {
+   "t": 19.9,
+   "type": "fx",
+   "name": "question"
+  },
+  {
+   "t": 19.9,
+   "type": "say",
+   "name": "tabsMany.4"
+  },
+  {
+   "t": 19.9,
+   "type": "sound",
+   "name": "blip"
+  },
+  {
+   "t": 20.602,
+   "type": "tab",
+   "name": "13"
+  },
+  {
+   "t": 20.663,
+   "type": "tab",
+   "name": "14"
+  },
+  {
+   "t": 20.723,
+   "type": "tab",
+   "name": "15"
+  },
+  {
+   "t": 20.783,
+   "type": "tab",
+   "name": "16"
+  },
+  {
+   "t": 20.843,
+   "type": "tab",
+   "name": "17"
+  },
+  {
+   "t": 20.903,
+   "type": "tab",
+   "name": "18"
+  },
+  {
+   "t": 20.963,
+   "type": "tab",
+   "name": "19"
+  },
+  {
+   "t": 21.023,
+   "type": "tab",
+   "name": "20"
+  },
+  {
+   "t": 21.084,
+   "type": "tab",
+   "name": "21"
+  },
+  {
+   "t": 21.144,
+   "type": "tab",
+   "name": "22"
+  },
+  {
+   "t": 21.204,
+   "type": "tab",
+   "name": "23"
+  },
+  {
+   "t": 21.264,
+   "type": "tab",
+   "name": "24"
+  },
+  {
+   "t": 21.325,
+   "type": "shot",
+   "name": "jump"
+  },
+  {
+   "t": 21.325,
+   "type": "mood",
+   "name": "SHOCKED"
+  },
+  {
+   "t": 21.325,
+   "type": "fx",
+   "name": "exclaim"
+  },
+  {
+   "t": 21.325,
+   "type": "say",
+   "name": "tabsPanic.1"
+  },
+  {
+   "t": 21.325,
+   "type": "sound",
+   "name": "blip"
+  },
+  {
+   "t": 23.565,
+   "type": "mood",
+   "name": "DRAMATIC"
+  },
+  {
+   "t": 23.565,
+   "type": "fx",
+   "name": "tears"
+  },
+  {
+   "t": 23.6,
+   "type": "scene",
+   "name": "06"
+  },
+  {
+   "t": 24.718,
+   "type": "sound",
+   "name": "purr"
+  },
+  {
+   "t": 24.718,
+   "type": "shot",
+   "name": "squish"
+  },
+  {
+   "t": 24.718,
+   "type": "mood",
+   "name": "AFFECTIONATE"
+  },
+  {
+   "t": 24.718,
+   "type": "fx",
+   "name": "hearts"
+  },
+  {
+   "t": 24.718,
+   "type": "say",
+   "name": "pet.8"
+  },
+  {
+   "t": 24.718,
+   "type": "sound",
+   "name": "blip"
+  },
+  {
+   "t": 27,
+   "type": "end",
+   "name": ""
+  }
+ ]
+}

@@ -1,0 +1,95 @@
+body {
+  width: 360px;
+  background: var(--sky2) url('/img/sky.png') center top / 720px auto no-repeat;
+  image-rendering: pixelated;
+}
+.popup {
+  padding: 10px;
+}
+.popup.loading {
+  color: #fff;
+  padding: 30px;
+}
+.pop-hero {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 14px 6px;
+}
+.pop-stage {
+  width: 120px;
+  height: 104px;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(transparent 70%, rgba(28, 18, 48, 0.12) 70%),
+    repeating-linear-gradient(0deg, var(--win2) 0 2px, var(--win) 2px 4px);
+  box-shadow: 0 0 0 3px var(--k);
+}
+.pop-id h1 {
+  margin: 0 0 6px;
+  font-size: 26px;
+  line-height: 1;
+}
+.pop-id p {
+  margin: 8px 0 0;
+  font-size: 13px;
+}
+.pop-thought {
+  margin: 8px 14px;
+}
+.pop-bars {
+  padding: 2px 14px;
+}
+.pop-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding: 8px 12px 4px;
+}
+.pop-actions .btn {
+  width: auto;
+}
+.pop-toggles {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 14px;
+  font-size: 13px;
+  border-top: 3px dashed var(--win3);
+  margin-top: 8px;
+}
+.pop-toggles .toggle .track {
+  width: 36px;
+  height: 18px;
+}
+.pop-toggles .toggle .knob {
+  width: 12px;
+  height: 12px;
+}
+.pop-toggles .toggle[aria-checked='true'] .knob {
+  left: 21px;
+}
+.pop-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 10px 12px 14px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.pop-warn,
+.pop-flash {
+  margin: 8px 14px 0;
+  padding: 8px 10px;
+  font-size: 13px;
+  box-shadow: 0 0 0 3px var(--k);
+}
+.pop-warn {
+  background: var(--yellow);
+  color: #1c1230;
+}
+.pop-flash {
+  background: var(--accent);
+  color: #1c1230;
+}

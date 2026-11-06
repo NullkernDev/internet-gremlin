@@ -1,0 +1,63 @@
+{
+  "name": "internet-gremlin",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A tiny pixel creature that lives in your browser. Your browser. Its territory. Your problem.",
+  "license": "MIT",
+  "author": "NullkernDev",
+  "homepage": "https://github.com/NullkernDev/internet-gremlin#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NullkernDev/internet-gremlin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NullkernDev/internet-gremlin/issues"
+  },
+  "keywords": [
+    "chrome-extension",
+    "virtual-pet",
+    "pixel-art",
+    "browser-extension",
+    "manifest-v3"
+  ],
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "vite build --watch --config vite.content.config.ts",
+    "typecheck": "tsc --noEmit -p .",
+    "lint": "eslint .",
+    "check": "npm run typecheck && npm run lint && npm run test && npm run build",
+    "test": "tsx tests/brain.test.ts",
+    "assets": "tsx scripts/generate-assets.ts",
+    "test:e2e": "node scripts/build.mjs && tsx tests/e2e.ts",
+    "promo": "tsx scripts/render-promo.ts",
+    "demo:build": "vite build --config promo/demo/vite.config.ts",
+    "demo:record": "tsx scripts/record-demo.ts",
+    "package": "node scripts/package.mjs",
+    "demo:sound": "tsx scripts/soundtrack.ts --mux"
+  },
+  "dependencies": {
+    "@fontsource/pixelify-sans": "^5.3.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/chrome": "^0.3.7",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.2.1",
+    "eslint": "^10.14.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.14.0",
+    "playwright-core": "^1.65.0",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vite": "^8.3.6"
+  }
+}
