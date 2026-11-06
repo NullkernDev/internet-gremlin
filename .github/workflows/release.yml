@@ -1,8 +1,13 @@
 name: Release
 
+# Bump "version" in package.json on main and this workflow tags the commit,
+# builds the extension and publishes the GitHub release. It can also be run
+# by hand from the Actions tab.
 on:
   push:
-    tags: ['v*']
+    branches: [main]
+    paths: [package.json, .github/workflows/release.yml]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -13,30 +18,46 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Work out version
+        id: version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="v$(node -p "require('./package.json').version")"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG already exists, nothing to do."
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/setup-node@v4
+        if: steps.version.outputs.exists == 'false'
         with:
           node-version: 22
           cache: npm
       - run: npm ci
+        if: steps.version.outputs.exists == 'false'
       - run: npm run typecheck
+        if: steps.version.outputs.exists == 'false'
       - run: npm run lint
+        if: steps.version.outputs.exists == 'false'
       - run: npm test
+        if: steps.version.outputs.exists == 'false'
       - run: npm run build
+        if: steps.version.outputs.exists == 'false'
       - run: npm run package
-
-      - name: Check tag matches package.json
-        run: |
-          VERSION="$(node -p "require('./package.json').version")"
-          if [ "v$VERSION" != "$GITHUB_REF_NAME" ]; then
-            echo "Tag $GITHUB_REF_NAME does not match package.json version $VERSION" >&2
-            exit 1
-          fi
+        if: steps.version.outputs.exists == 'false'
 
       - name: Write release notes
+        if: steps.version.outputs.exists == 'false'
         run: |
-          VERSION="${GITHUB_REF_NAME#v}"
+          TAG="${{ steps.version.outputs.tag }}"
+          VERSION="${TAG#v}"
           {
-            echo "<p align=\"center\"><img src=\"https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_REF_NAME}/assets/hero.png\" alt=\"Internet Gremlin\" width=\"720\"></p>"
+            echo "<p align=\"center\"><img src=\"https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_SHA}/assets/hero.png\" alt=\"Internet Gremlin\" width=\"720\"></p>"
             echo
             echo "**Your browser. Its territory. Your problem.**"
             echo
@@ -63,12 +84,15 @@ jobs:
           cat release-notes.md
 
       - name: Publish release
+        if: steps.version.outputs.exists == 'false'
         env:
           GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
         run: |
-          gh release create "$GITHUB_REF_NAME" \
-            "release/internet-gremlin-${GITHUB_REF_NAME}.zip" \
+          gh release create "$TAG" \
+            "release/internet-gremlin-${TAG}.zip" \
             "promo/demo.mp4#internet-gremlin-demo.mp4" \
-            --title "Internet Gremlin ${GITHUB_REF_NAME}" \
+            --target "$GITHUB_SHA" \
+            --title "Internet Gremlin ${TAG}" \
             --notes-file release-notes.md \
             --latest

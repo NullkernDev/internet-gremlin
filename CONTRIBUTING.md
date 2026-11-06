@@ -60,3 +60,10 @@ Keep lines short (they live in a tiny bubble), original, and kind-hearted at the
 ## Code style
 
 TypeScript strict mode, React function components, Prettier-style formatting (2 spaces, single quotes, 160 columns). ESLint is the source of truth: `npm run lint`.
+
+## Releasing (maintainers)
+
+1. Move the “Unreleased” notes in `CHANGELOG.md` under a new version heading.
+2. Bump `version` in `package.json` (the manifest version is filled in at build time).
+3. Merge to `main`. The **Release** workflow tests and builds the extension, creates the `vX.Y.Z` tag and publishes the GitHub release with the zip and demo video attached.
+
