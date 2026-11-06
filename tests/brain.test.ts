@@ -32,7 +32,8 @@ function seeded(seed = 42) {
 
 function makeBrain(opts: { trust?: number; affection?: number; rng?: () => number } = {}) {
   const pet = { ...defaultPet(0), trust: opts.trust ?? 5, affection: opts.affection ?? 20 };
-  const brain = new Brain({ pet, intensity: 'normal', rng: opts.rng ?? seeded(), now: 0 });
+  // ambient: false keeps the tests independent of the wall clock (e.g. the midnight surprise)
+  const brain = new Brain({ pet, intensity: 'normal', rng: opts.rng ?? seeded(), now: 0, ambient: false });
   const outputs: Output[] = [];
   brain.onOutput((o) => outputs.push(o));
   return { brain, outputs };
@@ -186,7 +187,7 @@ test('neglect for days creates a grudge', () => {
 });
 test('a neglected gremlin forgives after a few pets', () => {
   const pet = { ...defaultPet(0), trust: 30, grudge: 3 };
-  const brain = new Brain({ pet, intensity: 'normal', rng: seeded(), now: 0 });
+  const brain = new Brain({ pet, intensity: 'normal', rng: seeded(), now: 0, ambient: false });
   const said: string[] = [];
   brain.onOutput((o) => o.type === 'say' && said.push(o.id));
   brain.pet(1000);
